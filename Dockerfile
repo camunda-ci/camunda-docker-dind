@@ -4,12 +4,6 @@ FROM camunda-ci1:5000/ubuntu:14.04.1
 ENV DEBIAN_FRONTEND=noninteractive \
     INITRD=No
 
-# override apt sources.list
-ADD etc/apt/sources.list /etc/apt/sources.list
-
-# clear additional sources
-RUN rm -rf /etc/apt/sources.list.d/*
-
 # add helper scripts
 ADD bin/* /usr/local/bin/
 

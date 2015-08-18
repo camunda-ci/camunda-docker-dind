@@ -1,4 +1,4 @@
-FROM camunda-ci1.local:5000/camunda-ci-base-ubuntu:latest
+FROM ci1.camunda.loc:5000/camunda-ci-base-ubuntu:latest
 
 # add helper scripts
 ADD bin/* /usr/local/bin/

@@ -1,19 +1,8 @@
-FROM ci1.camunda.loc:5000/camunda-ci-base-ubuntu:latest
-
-# add helper scripts
-ADD bin/* /usr/local/bin/
-
-# add docker repository
-RUN add-repo.sh http://get.docker.io/ubuntu 36A1D7869245C8950F966E92D8576A8BA88D21E9 docker main
+FROM registry.camunda.com/camunda-ci-base-centos:latest
 
 # install packages
-RUN install-packages.sh make lxc lxc-docker iptables
+RUN install-packages.sh make device-mapper-libs.x86_64
 
-# add camunda user to docker group
-RUN usermod -aG docker camunda
+ADD bin/* /usr/local/bin/
 
-# add supervisor conf
-ADD etc/supervisor.d/* /etc/supervisor/conf.d/
-
-# define additional metadata for our image.
-VOLUME /var/lib/docker
+CMD ["/usr/local/bin/start-container.sh"]

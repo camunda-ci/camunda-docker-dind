@@ -1,6 +1,6 @@
 # image settings for the docker image name, tags and
 # container name while running
-IMAGE_NAME=ci1.camunda.loc:5000/camunda-dind
+IMAGE_NAME=registry.camunda.com/camunda-dind
 TAGS=latest
 NAME=dind
 
@@ -48,6 +48,10 @@ publish: pull-from pull build push
 # run container
 run:
 	$(DOCKER) run --rm $(OPTS) $(IMAGE)
+
+# test container
+stage: rmf
+	$(DOCKER) run -i --rm -v /var/run/docker.sock:/var/run/docker.sock -v `which docker`:/usr/bin/docker -v /usr/lib64/libdevmapper.so.1.02:/usr/lib/libdevmapper.so.1.02 $(OPTS) $(IMAGE)
 
 # start container as daemon
 daemon:

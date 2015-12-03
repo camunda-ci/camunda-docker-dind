@@ -26,4 +26,6 @@ case $DOCKER_GRP in
 esac
 
 # start docker daemon
-exec /usr/bin/supervisord
+/usr/bin/supervisord
+
+tail -F /var/log/supervisor/*

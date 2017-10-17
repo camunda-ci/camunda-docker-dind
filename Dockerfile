@@ -1,4 +1,4 @@
-FROM registry.camunda.com/camunda-ci-base-centos:latest
+FROM registry.camunda.com/camunda-ci-base-centos:jdk-8
 
 # install packages
 RUN install-packages.sh make device-mapper-libs.x86_64

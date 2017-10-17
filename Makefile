@@ -1,7 +1,7 @@
 # image settings for the docker image name, tags and
 # container name while running
 IMAGE_NAME=registry.camunda.com/camunda-dind
-TAGS=latest
+TAGS=jdk-8
 NAME=dind
 
 # parent image name

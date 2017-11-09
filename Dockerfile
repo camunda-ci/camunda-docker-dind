@@ -1,7 +1,7 @@
 FROM registry.camunda.com/camunda-ci-base-centos:jdk-8
 
 # install packages
-RUN install-packages.sh make device-mapper-libs.x86_64
+RUN install-packages.sh make device-mapper-libs.x86_64 bzip2
 
 # set locale
 ENV LANG=en_US.utf8 \
